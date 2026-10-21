@@ -3,16 +3,21 @@
 # Install:
 #   brew install --cask m-moravcik/clipshot/clipshot
 #
-# The cask Homebrew installs. scripts/release.sh in the ClipShot repository
-# writes version and sha256 here on every release; ClipShot keeps a reference
-# copy under Casks/.
+# Source: Casks/clipshot.rb in m-moravcik/ClipShot, next to the code that writes
+# the files the install, uninstall and zap lists name, so a change to them is
+# reviewed with that code. On every release scripts/release.sh copies it into
+# the m-moravcik/homebrew-clipshot tap, which Homebrew installs from, with that
+# release's version and sha256; in the source the two are placeholders.
+#
+# `binary` links the command line tool that ships inside the app,
+# ClipShot.app/Contents/Helpers/clipshot, into Homebrew's bin as `clipshot`.
 #
 # The release ZIP is Developer ID signed, notarized and stapled. A copy installed
 # by this cask never updates itself: Homebrew owns its updates
 # (`brew upgrade --cask clipshot`), and the app says so in Settings > About.
 cask "clipshot" do
-  version "1.0.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "0.9.0"
+  sha256 "42fe3b19341500b7ccf0c90e3b9958080cdd7af664be940732d0620b0fdc95fc"
 
   url "https://github.com/m-moravcik/ClipShot/releases/download/v#{version}/ClipShot-#{version}.zip"
   name "ClipShot"
@@ -27,6 +32,7 @@ cask "clipshot" do
   depends_on macos: :tahoe
 
   app "ClipShot.app"
+  binary "#{appdir}/ClipShot.app/Contents/Helpers/clipshot"
 
   uninstall quit: "sk.moravcik.ClipShot"
 
