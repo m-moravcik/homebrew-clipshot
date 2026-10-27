@@ -16,8 +16,8 @@
 # by this cask never updates itself: Homebrew owns its updates
 # (`brew upgrade --cask clipshot`), and the app says so in Settings > About.
 cask "clipshot" do
-  version "0.9.2"
-  sha256 "a9fb9da9f6c836bce03f9b30d8ba03b75b46ed0ac1c36163728b60a975e05f0b"
+  version "0.9.3"
+  sha256 "7bfcbe0f637ede69d1e2b8ffb722b4283cc1eabd95422538efd4fc7e9b0d98ef"
 
   url "https://github.com/m-moravcik/ClipShot/releases/download/v#{version}/ClipShot-#{version}.zip"
   name "ClipShot"
